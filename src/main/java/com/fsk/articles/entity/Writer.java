@@ -1,6 +1,5 @@
 package com.fsk.articles.entity;
 
-import com.fsk.articles.enums.Role;
 import lombok.Data;
 import org.springframework.data.mongodb.core.mapping.DBRef;
 import org.springframework.data.mongodb.core.mapping.Document;
@@ -10,6 +9,7 @@ import org.springframework.data.mongodb.core.mapping.Field;
 
 import javax.persistence.Id;
 import java.util.List;
+import java.util.Set;
 
 @Document(collation = "Writer")
 @Data
@@ -30,8 +30,8 @@ public class Writer {
     @Field("password")
     private String password;
 
-    @Field("title")
-    private String title;
+    @Field("writerName")
+    private String writerName;
 
     @Field("company")
     private String company;
@@ -47,8 +47,4 @@ public class Writer {
 
     @DocumentReference(collection = "Communication")
     private CommunicationInformations communicationInformations;
-
-    @Field("role")
-    private Role role;
-
 }
